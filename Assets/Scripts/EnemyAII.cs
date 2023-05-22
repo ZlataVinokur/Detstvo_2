@@ -39,17 +39,17 @@ public class EnemyAII : MonoBehaviour
                 }
                 _aiDestinationSetter.target = _roamTarget.transform;
 
-                if (Vector3.Distance(gameObject.transform.position, _player.transform.position) < Vector3.Distance(gameObject.transform.position, _tower.transform.position))
+                if (Vector3.Distance(gameObject.transform.position, _tower.transform.position) < Vector3.Distance(gameObject.transform.position, _player.transform.position))
                 {
-                    TryFindPlayer();
+                    TryFindTower();
                     _enemyAnimator.IsWalking(true);
                     _enemyAnimator.IsRunning(false);
                     aiPath.maxSpeed = 2;
                 }
 
-                else /*if (Vector3.Distance(gameObject.transform.position, _player.transform.position) >= Vector3.Distance(gameObject.transform.position, _tower.transform.position))*/
+                else 
                 {
-                    TryFindTower();
+                    TryFindPlayer();
                     _enemyAnimator.IsWalking(true);
                     _enemyAnimator.IsRunning(false);
                     aiPath.maxSpeed = 2;
@@ -81,17 +81,7 @@ public class EnemyAII : MonoBehaviour
                     }
                     
                 }
-                /*else if (Vector3.Distance(gameObject.transform.position, _tower.transform.position) < _enemyAttack.AttackRange)
-                {
-
-                    _enemyAnimator.IsWalking(false);
-                    _enemyAnimator.IsRunning(false);
-
-                    _enemyAttack.TryAttackTower();
-                    _enemyAnimator.PlayAttack();
-                    
-
-                }*/
+                
                 if (Vector3.Distance(gameObject.transform.position, _player.transform.position) >= _stopTargetFollowingRange)
                 {
                     _currentState = EnemyStates.Roaming;
@@ -119,26 +109,6 @@ public class EnemyAII : MonoBehaviour
 
                     }
                 }
-                
-
-                /*if (Vector3.Distance(gameObject.transform.position, _tower.transform.position) < _enemyAttack.AttackRange)
-                {
-
-                    _enemyAnimator.IsWalking(false);
-                    _enemyAnimator.IsRunning(false);
-
-                    if (_enemyAttack.CanAttack)
-                    {
-                        _enemyAttack.TryAttackTower();
-
-                        _enemyAnimator.PlayAttack();
-                    }
-                    
-                }
-                if (Vector3.Distance(gameObject.transform.position, _tower.transform.position) >= _stopTargetFollowingRange)
-                {
-                    _currentState = EnemyStates.Roaming;
-                }*/
                 break;
         }
     }
@@ -177,6 +147,6 @@ public class EnemyAII : MonoBehaviour
 public enum EnemyStates
 {
     Roaming,
-    Following,
-    FollowingTow
+    FollowingTow,
+    Following
 }

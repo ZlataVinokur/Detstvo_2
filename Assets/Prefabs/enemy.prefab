@@ -643,7 +643,7 @@ MonoBehaviour:
   _maxWalkableDistance: 8
   _reachedPointDistance: 2
   _roamTarget: {fileID: 180410426703582813}
-  _targetFollowRange: 4
+  _targetFollowRange: 6
   _enemyAttack: {fileID: -5910444972862870920}
   _stopTargetFollowingRange: 8
   _aiDestinationSetter: {fileID: 1731187647015403384}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackRange: 2
   _damage: 1
-  _coolDown: 5
+  _coolDown: 3
 --- !u!114 &-6991951913734102255
 MonoBehaviour:
   m_ObjectHideFlags: 0
