@@ -4,28 +4,36 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private float _spawnInterval;
+    [SerializeField] private float _startSpawn;
     [SerializeField] private int _mixX;
     [SerializeField] private int _maxX;
     [SerializeField] private int _mixY;
     [SerializeField] private int _maxY;
     [SerializeField] private float _height;
+    private float _currentStartSpawnTimer;
     private float _currentSpawnTimer;
     private float _currentSpawnNumber;
+
     private void Update()
     {
-        _currentSpawnTimer += Time.deltaTime;
-        if (_currentSpawnTimer >= _spawnInterval)
+        _currentStartSpawnTimer+=Time.deltaTime;
+        if (_currentStartSpawnTimer >= _startSpawn)
         {
-            var enemyInstance = Instantiate(_enemyPrefab);
-            var newPosition = GenerateStartPosition();
-            enemyInstance.transform.position = newPosition;
-            _currentSpawnTimer = 0;
-            _currentSpawnNumber += 1;
-            if (_currentSpawnNumber == 10)
+            _currentSpawnTimer += Time.deltaTime;
+            if (_currentSpawnTimer >= _spawnInterval)
             {
-                _spawnInterval = 1000;
+                var enemyInstance = Instantiate(_enemyPrefab);
+                var newPosition = GenerateStartPosition();
+                enemyInstance.transform.position = newPosition;
+                _currentSpawnTimer = 0;
+                _currentSpawnNumber += 1;
+                if (_currentSpawnNumber == 10)
+                {
+                    _currentSpawnTimer-=100;
+                }
             }
         }
+        
     }
     private Vector3 GenerateStartPosition()
     {

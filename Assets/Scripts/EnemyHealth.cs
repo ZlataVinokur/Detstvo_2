@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int _healthEnemy;
+    [Header("Unity Setup")]
+    public ParticleSystem deathParticles;
 
     public void TakeDamage(int damage)
     {
@@ -13,9 +15,14 @@ public class EnemyHealth : MonoBehaviour
 
         if (_healthEnemy - damage <= 0)
         {
-            Debug.Log("Enemy_Died");
-            return;
+            Destroy();
         }
 
+    }
+
+    public void Destroy()
+    {
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
