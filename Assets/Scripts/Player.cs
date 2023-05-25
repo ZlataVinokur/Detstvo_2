@@ -18,4 +18,19 @@ public class Player : MonoBehaviour
 
     }
 
+    public void TakeFood(int heal)
+    {
+        if (_health == 15)
+        {
+            Debug.Log("You are good");
+            return;
+        }
+        else if (_health + heal <= 15)
+        {
+            _health+=heal;
+            
+        }
+        else { _health = 15; }
+    }
+
 }
