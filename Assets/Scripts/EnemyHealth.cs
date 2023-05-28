@@ -19,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
         }
 
     }
-
     public void Destroy()
     {
         Instantiate(deathParticles, transform.position, Quaternion.identity);

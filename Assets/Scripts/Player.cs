@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
 
     public void TakeFood(int heal)
     {
-        
         if (_health + heal <= 15)
         {
             _health+=heal;
