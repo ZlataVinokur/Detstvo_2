@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private float _currentSpawnTimer;
     private float _currentSpawnNumber;
 
+  
     private void Update()
     {
         _currentStartSpawnTimer+=Time.deltaTime;
