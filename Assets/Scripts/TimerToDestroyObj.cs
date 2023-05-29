@@ -24,7 +24,7 @@ public class TimerToDestroyObj : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else { Debug.Log("inLoot"); }
+        
     }
 
 

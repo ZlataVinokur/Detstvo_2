@@ -7,21 +7,27 @@ public class FoodScript : MonoBehaviour
 {
     [SerializeField] private int _healthAmount;
     private Player _player;
-    
+
     private void Start()
     {
         _player = FindObjectOfType<Player>();
-        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
-        grabbable.activated.AddListener(Healing);
-
     }
 
-    public void Healing(ActivateEventArgs arg)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Healing();
+        }
+    }
+    public void Healing()
     {
         if (_player._health > 0 && _player._health < 15)
         {
             _player.TakeFood(_healthAmount);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
+
+
 }
