@@ -8,9 +8,13 @@ public class WeaponScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyHealth>().TakeDamage(_damageAmount);
         }
+
     }
+
+
 }
