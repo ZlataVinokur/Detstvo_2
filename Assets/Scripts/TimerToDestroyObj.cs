@@ -5,22 +5,17 @@ using UnityEngine;
 public class TimerToDestroyObj : MonoBehaviour
 {
     [SerializeField] public float _timer;
-    private int timeToDis = 0;
 
     private float _timerValue;
     private void Update()
     {
         _timerValue += Time.deltaTime;
-        
-        if (_timerValue > _timer)
-        {
-            timeToDis = 1;
-        }
+       
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (timeToDis==1 && other.tag != "Loot")
+        if (_timerValue == _timer && other.tag != "Loot")
         {
             Destroy(gameObject);
         }

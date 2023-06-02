@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
                 enemyInstance.transform.position = newPosition;
                 _currentSpawnTimer = 0;
                 _currentSpawnNumber += 1;
-                if (_currentSpawnNumber == 10)
+                if (_currentSpawnNumber == 15)
                 {
                     _currentSpawnTimer-=100;
                 }
