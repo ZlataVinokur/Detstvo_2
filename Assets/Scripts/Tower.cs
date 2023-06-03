@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tower : MonoBehaviour
 {
 
-    [SerializeField] private int _healthT;
+    [SerializeField] public int _healthT;
 
     public void TakeDamage(int damage)
     {
@@ -13,10 +14,14 @@ public class Tower : MonoBehaviour
 
         if (_healthT - damage <= 0)
         {
-            Debug.Log("TowerDied");
-            return;
+            OpenDeath();
         }
 
+    }
+
+    private void OpenDeath()
+    {
+        SceneManager.LoadScene("death");
     }
 
 }

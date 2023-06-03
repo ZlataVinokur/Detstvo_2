@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,8 +13,7 @@ public class Player : MonoBehaviour
 
         if (_health - damage<=0)
         {
-            Debug.Log("Died");
-            return;
+            OpenDeath();
         }
 
     }
@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
             
         }
         else { _health = 15; }
+    }
+
+    private void OpenDeath()
+    {
+        SceneManager.LoadScene("death");
     }
 
 }
