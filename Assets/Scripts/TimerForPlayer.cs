@@ -29,7 +29,7 @@ public class TimerForPlayer : MonoBehaviour
         if (_timerValue >= _timerFP)
         {
             _timerOutput+=Time.deltaTime;
-            _timerOutputInt = 180 - (int)_timerOutput;
+            _timerOutputInt = 40 - (int)_timerOutput;
             GetComponent<TMP_Text>().text = _timerOutputInt.ToString() + " сек осталось оборонять площадку";
 
             if (_timerOutputInt == 0 && _player._health>0 && _tower._healthT>0)

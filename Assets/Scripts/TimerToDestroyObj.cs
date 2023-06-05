@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimerToDestroyObj : MonoBehaviour
 {
-    [SerializeField] public float _timer;
+    [SerializeField] public float _timerr;
 
     private float _timerValue;
     private void Update()
@@ -15,9 +15,9 @@ public class TimerToDestroyObj : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (_timerValue == _timer && other.tag != "Loot")
+        if (_timerValue == _timerr && other.tag != "Loot")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         
     }
