@@ -17,7 +17,7 @@ public class TimerForPlayer : MonoBehaviour
 
     void Start()
     {
-        GetComponent<TMP_Text>().text = "время искать ресурсы";
+        GetComponent<TMP_Text>().text = "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
         _player = FindObjectOfType<Player>();
         _tower = FindObjectOfType<Tower>();
        
@@ -29,8 +29,8 @@ public class TimerForPlayer : MonoBehaviour
         if (_timerValue >= _timerFP)
         {
             _timerOutput+=Time.deltaTime;
-            _timerOutputInt = 40 - (int)_timerOutput;
-            GetComponent<TMP_Text>().text = _timerOutputInt.ToString() + " сек осталось оборонять площадку";
+            _timerOutputInt = 80 - (int)_timerOutput;
+            GetComponent<TMP_Text>().text = _timerOutputInt.ToString() + " пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 
             if (_timerOutputInt == 0 && _player._health>0 && _tower._healthT>0)
             {

@@ -17,7 +17,7 @@ public class TimerToDestroyObj : MonoBehaviour
     {
         if (_timerValue == _timerr && other.tag != "Loot")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         
     }
